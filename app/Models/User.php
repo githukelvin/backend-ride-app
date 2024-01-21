@@ -18,9 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'phone'
     ];
 
     /**
@@ -32,6 +30,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+public function routeNotificationForAT(){
+    return  $this->phone;
+}
 public function driver(){
     return $this->hasOne(Driver::class);
 }
