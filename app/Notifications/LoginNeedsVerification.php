@@ -39,8 +39,7 @@ class LoginNeedsVerification extends Notification
             'login_code' => $loginCode
         ]);
        return (new AfricasTalkingMessage())
-           ->content("Your ride login code is $loginCode,
-            don't share with anyone");
+           ->content("Your ride login code is $loginCode,don't share with anyone");
 
 }
 

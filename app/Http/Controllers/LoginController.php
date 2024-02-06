@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\LoginNeedsVerification;
-use http\Client\Curl\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -52,7 +52,9 @@ class LoginController extends Controller
             $user->update([
                 'login_code'=>null,
             ]);
-            return $user->createToken('Auth_token')->plainTextToken;
+            return response()->json([
+                'auth_token'=>$user->createToken('Auth_token')->plainTextToken
+            ]);
         }
 //        if not , return back a message
         return  response()->json([

@@ -17,9 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'phone'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -27,10 +25,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'login_code',
         'remember_token',
     ];
-public function routeNotificationForAT(){
+public function routeNotificationForAfricasTalking(){
     return  $this->phone;
 }
 public function driver(){
