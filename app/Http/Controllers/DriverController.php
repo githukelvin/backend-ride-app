@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\ValidationException;
 class DriverController extends Controller
 {
     public function show(Request $request){
@@ -13,14 +14,15 @@ class DriverController extends Controller
         return $user;
 
     }
-    public function  update(Request $request){
+    public function  updateDriver(Request $request)
+    {
         $request->validate([
-            'year'=>'required|numeric|between:2010,2024',
-            'make'=>'required',
-            'model'=>'required',
-            'color'=>'required|alpha',
-            'license_plate'=>'required',
-            'name'=>'required'
+            'year' => 'required|numeric|between:2010,2024',
+            'make' => 'required',
+            'model' => 'required',
+            'color' => 'required|alpha',
+            'license_plate' => 'required',
+            'name' => 'required'
         ]);
         $user = $request->user();
 

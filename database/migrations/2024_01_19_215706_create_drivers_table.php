@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->integer("year");
             $table->string("make");
+            $table->string("name");
             $table->string("model");
+            $table->string("color");
             $table->string("license_plate");
             $table->string("driving_license");
             $table->timestamps();
