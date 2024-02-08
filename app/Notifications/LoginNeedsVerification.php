@@ -32,16 +32,16 @@ class LoginNeedsVerification extends Notification
     /**
      * Get the mail representation of the notification.
      */
-   public function toAfricasTalking($notifiable): AfricasTalkingMessage
-{
-       $loginCode = rand(111111,999999);
+    public function toAfricasTalking($notifiable): AfricasTalkingMessage
+    {
+        $loginCode = rand(111111, 999999);
         $notifiable->update([
             'login_code' => $loginCode
         ]);
-       return (new AfricasTalkingMessage())
-           ->content("Your ride login code is $loginCode,don't share with anyone");
+        return (new AfricasTalkingMessage())
+            ->content("Your ride login code is $loginCode,don't share with anyone");
 
-}
+    }
 
     /**
      * Get the array representation of the notification.
