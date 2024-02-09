@@ -26,7 +26,15 @@ Route::group(['middleware'=>'auth:sanctum'],function (){
     Route::post('driver',[DriverController::class,'updateDriver']);
 
 
-    Route::post('/trip',[TripController::class,'']);
+    Route::post('/trip',[TripController::class,'store']);
+    Route::get('trip/{trip}',[Tripcontroller::class,'show']);
+
+    Route::post('/trip/{trip}/accept',[Tripcontroller::class,'accept']);
+    Route::post('/trip/{trip}/start',[Tripcontroller::class,'start']);
+    Route::post('/trip/{trip}/end',[Tripcontroller::class,'end']);
+    Route::post('/trip/{trip}/location',[Tripcontroller::class,'location']);
+
+
     Route::get('/user',function (Request $request){
         return $request->user();
     });
